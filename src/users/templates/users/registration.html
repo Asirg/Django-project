@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="login-window flex-column flex-center">
+        <h1>Registration</h1>
+        <form method="POST" action="" class="flex-column gap-xs padding-sm">
+            {% csrf_token %}
+
+            {{form}}
+
+
+            <!-- <label>Username:</label>
+            <input type="test" name="username" placeholder="Enter Username" />
+
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Enter Password"/> -->
+
+            <span class="error-message font-size-xs">
+                {% if messages %}
+                    {% for message in messages %}
+                            {{ message }}
+                    {% endfor %}
+                {% endif %}
+            </span>
+
+            <div class="flex-row flex-space-between font-size-xs">
+                <a href="{% url 'login' %}">Login</a>
+                <input type="submit" value="Registration"/>
+            </div>
+        </form>
+    </div>
+    
+
+{% endblock content %}
