@@ -1,6 +1,6 @@
 [
     {
-        "model": "users.UserLanguage",
+        "model": "base.LanguageLevel",
         "pk": 1,
         "fields": {
             "language": 1,
@@ -8,7 +8,7 @@
         }
     },
     {
-        "model": "users.UserLanguage",
+        "model": "base.LanguageLevel",
         "pk": 2,
         "fields": {
             "language": 1,
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "users.UserLanguage",
+        "model": "base.LanguageLevel",
         "pk": 3,
         "fields": {
             "language": 1,
@@ -24,7 +24,7 @@
         }
     },
     {
-        "model": "users.UserLanguage",
+        "model": "base.LanguageLevel",
         "pk": 4,
         "fields": {
             "language": 1,
@@ -32,7 +32,7 @@
         }
     },
     {
-        "model": "users.UserLanguage",
+        "model": "base.LanguageLevel",
         "pk": 5,
         "fields": {
             "language": 1,
@@ -40,7 +40,7 @@
         }
     },
     {
-        "model": "users.UserLanguage",
+        "model": "base.LanguageLevel",
         "pk": 6,
         "fields": {
             "language": 1,

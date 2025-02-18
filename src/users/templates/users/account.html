@@ -7,7 +7,11 @@
     <div class="window-border">
         <div class="flex-column gap-md">
             <div class="flex-row gap-md">
-                <img src="{{ user.userprofile.avatar.url }}" alt="Avatar" class="user-logo-big">
+                {% if user.userprofile.avatar %}
+                    <img src="{{ user.userprofile.avatar.url }}" alt="Avatar" class="user-logo-big">
+                {% else %}
+                    <img src="{% static 'images/anonimous.png' %}" alt="Avatar" class="user-logo-big">
+                {% endif %}
                 <div class="flex-column">
                     <div class="flex-row gap-sm align-items-center">
                         <div class="font-size-xl font-bold">{{user.first_name}} {{user.last_name}}</div>
