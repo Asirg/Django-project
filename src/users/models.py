@@ -27,9 +27,9 @@ class UserProfile(models.Model):
     domain = models.ForeignKey(Domain, on_delete=models.SET_NULL, null=True, blank=True, related_name="consumers")
 
     primary_specialization = models.ForeignKey(Specialization, on_delete=models.SET_NULL, null=True, blank=True, related_name="primary_consumers")
-    secondary_specializations = models.ManyToManyField(Specialization, related_name="secondary_consumers")
+    secondary_specializations = models.ManyToManyField(Specialization, related_name="secondary_consumers", blank=True )
 
-    skills = models.ManyToManyField(UserSkill, related_name="users")
+    skills = models.ManyToManyField(UserSkill, related_name="users", blank=True)
 
     def __str__(self):
         return self.user.username
