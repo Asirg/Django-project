@@ -35,6 +35,11 @@
                 <div>Типы отображения</div>
             </div>
             <div>
+                {% for language in user.userprofile.languages.all %}
+                    {{language}} {{language.get_level_display}}
+                {% endfor %}
+            </div>
+            <div>
                 {% for technology in user.userprofile.skills.all %}
                     {{technology}}
                 {% endfor %}

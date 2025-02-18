@@ -1,6 +1,9 @@
 from django.contrib import admin
 from . import models
 
+@admin.register(models.Language)
+class LanguageAdmin(admin.ModelAdmin):
+    list_display = ['name']
 
 @admin.register(models.Technology)
 class TechnologyAdmin(admin.ModelAdmin):

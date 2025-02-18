@@ -1,0 +1,10 @@
+[
+    {
+        "model": "base.Language",
+        "pk": 1,
+        "fields": {
+            "name": "English",
+            "desctiption": ". . ."
+        }
+    }
+]

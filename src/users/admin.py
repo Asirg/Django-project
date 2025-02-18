@@ -2,6 +2,12 @@ from django.contrib import admin
 from . import models
 
 
+@admin.register(models.UserLanguage)
+class UserLanguageAdmin(admin.ModelAdmin):
+    list_display = [
+        'language__name', 'level'
+    ]
+
 @admin.register(models.UserSkill)
 class UserSkillAdmin(admin.ModelAdmin):
     list_display = [
@@ -33,7 +39,7 @@ class UserProfileAdmin(admin.ModelAdmin):
             "Profession",
             {"fields":[
                 ('domain', 'primary_specialization'),
-                ('secondary_specializations', 'skills')
+                ('secondary_specializations', 'skills', 'languages')
             ]}
         )
     ]

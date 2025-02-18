@@ -1,0 +1,50 @@
+[
+    {
+        "model": "users.UserLanguage",
+        "pk": 1,
+        "fields": {
+            "language": 1,
+            "level": "A1"
+        }
+    },
+    {
+        "model": "users.UserLanguage",
+        "pk": 2,
+        "fields": {
+            "language": 1,
+            "level": "A2"
+        }
+    },
+    {
+        "model": "users.UserLanguage",
+        "pk": 3,
+        "fields": {
+            "language": 1,
+            "level": "B1"
+        }
+    },
+    {
+        "model": "users.UserLanguage",
+        "pk": 4,
+        "fields": {
+            "language": 1,
+            "level": "B2"
+        }
+    },
+    {
+        "model": "users.UserLanguage",
+        "pk": 5,
+        "fields": {
+            "language": 1,
+            "level": "C1"
+        }
+    },
+    {
+        "model": "users.UserLanguage",
+        "pk": 6,
+        "fields": {
+            "language": 1,
+            "level": "C2"
+        }
+    }
+]
