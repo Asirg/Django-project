@@ -11,9 +11,10 @@ class UserSkillAdmin(admin.ModelAdmin):
 @admin.register(models.UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = [
-        'id', 
         'user__username', 
         'city',
+        'country',
+        'id', 
     ]
 
     fieldsets = [
