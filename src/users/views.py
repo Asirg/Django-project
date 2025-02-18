@@ -38,20 +38,23 @@ def logout_view(request):
     return redirect('home')
 
 # Register user
-class RegistrationView(View):
+class RegistrationView(TemplateView):
+    template_name = 'users/registration.html'
     def post(self, request):
         if request.method == "POST":
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 user = form.save()
                 login(request, user)
-                return redirect('account')
+                return redirect('account', pk=user.id)
             else:
                 messages.error(request, "An error occurred during registrations")
-
-    def get(self, request):
-        form = UserCreationForm()
         return render(request, 'users/registration.html', context={'form':form})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = UserCreationForm()
+        return context
     
 
 # @login_required(login_url='login')
