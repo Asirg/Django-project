@@ -4,7 +4,7 @@
 
     <div class="window-border">
         <div class="flex-column gap-md">
-            <div class="flex-row align-items-center gap-md">
+            <div class="flex-row gap-md">
                 <div class="user-logo-big"></div>
                 <div class="flex-column">
                     <div class="flex-row gap-sm align-items-center">
@@ -13,12 +13,12 @@
                         иконки с языками
                     </div>
                     <div class="flex-row gap-sm font-size-md font-bold font-color-secondary align-items-center">
-                        <div>Position</div>
+                        <div class="font-color-black">{{user.userprofile.primary_specialization}}</div>
                         <div class="font-size-sm">from</div>
-                        <div>Kyiv, Ukraine</div>
+                        <div>{{user.userprofile.city}}, {{user.userprofile.country}}</div>
                     </div>
                     <div class="user-description font-size-sm font-color-secondary">
-                        {{"Сделать кастумный обрезатор, который будет зависить вероятно от дисплея, что бы всегда было 2 строки Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."|truncatechars:150}}
+                        {{user.userprofile.description|truncatechars:150}}
                     </div>
                 </div>
             </div>
@@ -30,12 +30,14 @@
     </div>
     <div class="window-border">
         <div class="flex-column gap-md">
-            <div>
-                <div>Technologies</div>
+            <div class="flex-row gap-xxl">
+                <div class="font-size-xl font-bold">Technologies</div>
                 <div>Типы отображения</div>
             </div>
             <div>
-                Отображение по категориям, зависит от структуры входных данных, потому отобржание будет категоризированно разным образом
+                {% for technology in user.userprofile.skills.all %}
+                    {{technology}}
+                {% endfor %}
             </div>
         </div>
     </div>

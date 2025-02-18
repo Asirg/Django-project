@@ -16,6 +16,9 @@ class UserSkill(models.Model):
         ]
     )
 
+    def __str__(self):
+        return f"{self.technology.name}:{self.score}"
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
