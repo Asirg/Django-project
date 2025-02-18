@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView
+
+from .models import Vacansy
+
 
 def HomeView(request):
     return render(request, 'base/home.html')
 
-def RoomView(request, pk):
-    return render(request, 'base/room.html', context={'pk':pk})
+class VacancyListView(ListView):
+    template_name = 'base/vacancies_list.html'
+    model = Vacansy
+    queryset = Vacansy.objects.all()

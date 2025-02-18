@@ -212,6 +212,14 @@ input::placeholder {
     gap: var(--spacing-md);
 }
 
+.gap-lg {
+    gap: var(--spacing-lg);
+}
+
+.gap-xl {
+    gap: var(--spacing-xl);
+}
+
 .gap-xxl {
     gap: var(--spacing-xxl);
 }
