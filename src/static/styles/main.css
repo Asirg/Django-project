@@ -9,6 +9,7 @@
     --color-black: #000;
     --color-primary: #F0F0F0;
     --color-secondary: #848484;
+    --color-light-gray: #c7c7c7;
 
     --spacing-xs: 4px;
     --spacing-sm: 8px;
@@ -82,13 +83,26 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-md)
+}
+
+.content > *{
+    min-width: 50vw;
+    padding: var(--spacing-md);
+    /* max-width: calc(100vw - var(--spacing-md) *2); */
 }
 
 .login-window form{
     background-color: var(--color-primary);
-    box-shadow: 1px 1px 5px var(--color-secondary);
     margin-top: var(--spacing-md);
+}
+
+.window-border{
+    border: solid 2px;
     border-radius: 5px;
+    border-color: var(--color-light-gray);
+    /* box-shadow: 0.5px 0.5px 5px var(--color-secondary); */
 }
 
 input::placeholder {
@@ -100,6 +114,22 @@ input::placeholder {
 .error-message{
     color: red;
     font-weight: bold;
+}
+
+/* .user-account-window {
+    width: 40vw;   
+    background-color: #000;
+} */
+
+.user-logo-big{
+    background-color: black; 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+}
+
+.user-description{
+    max-width: calc(50vw - var(--spacing-md) - 100px);
 }
 
 /* ****************************************************************************** */
@@ -121,6 +151,18 @@ input::placeholder {
     align-items: center;
 }
 
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-items-center{
+    justify-items: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
 .flex-space-between {
     justify-content: space-between;
 }
@@ -129,8 +171,20 @@ input::placeholder {
     font-size: var(--font-size-xs);
 }
 
+.font-size-sm{
+    font-size: var(--font-size-sm);
+}
+
+.font-size-md{
+    font-size: var(--font-size-md);
+}
+
 .font-size-lg{
     font-size: var(--font-size-lg);
+}
+
+.font-size-xl{
+    font-size: var(--font-size-xl);
 }
 
 .font-size-xxl{
@@ -139,6 +193,10 @@ input::placeholder {
 
 .gap-xs {
     gap: var(--spacing-xs);
+}
+
+.gap-sm {
+    gap: var(--spacing-sm);
 }
 
 .gap-md {
@@ -167,4 +225,12 @@ input::placeholder {
 
 .font-color-secondary {
     color: var(--color-secondary);
+}
+
+.font-color-black {
+    color: var(--color-secondary);
+}
+
+.font-color-primary {
+    color: var(--color-primary);
 }
