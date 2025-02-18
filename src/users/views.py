@@ -58,22 +58,8 @@ class RegistrationView(TemplateView):
         context['form'] = UserCreationForm()
         return context
     
-
-# @login_required(login_url='login')
-# def accountView(request):
-#     if request.method == 'GET':
-#         return render(request, 'users/account.html')
-    
 class UserAccountView(LoginRequiredMixin, TemplateView):
     template_name = 'users/account.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        form = UserAvatarForm()
-        context['user_avatar_form'] = form
-
-        return context
 
 def upload_avatar(request):
     if request.method == 'POST':
