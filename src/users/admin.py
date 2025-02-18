@@ -1,3 +1,11 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+
+@admin.register(models.UserSkill)
+class UserSkillAdmin(admin.ModelAdmin):
+    ...
+
+@admin.register(models.UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    ...
