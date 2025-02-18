@@ -21,7 +21,7 @@ class UserProfile(models.Model):
 
     city = models.CharField(max_length=150, null=True, blank=True)
     country = models.CharField(max_length=100, null=True, blank=True)
-    descripion = models.TextField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     
 
     domain = models.ForeignKey(Domain, on_delete=models.SET_NULL, null=True, blank=True, related_name="consumers")
@@ -30,3 +30,6 @@ class UserProfile(models.Model):
     secondary_specializations = models.ManyToManyField(Specialization, related_name="secondary_consumers")
 
     skills = models.ManyToManyField(UserSkill, related_name="users")
+
+    def __str__(self):
+        return self.user.username
