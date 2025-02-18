@@ -132,6 +132,15 @@ input::placeholder {
     max-width: calc(50vw - var(--spacing-md) - 100px);
 }
 
+.button-md{
+    width: 40px; 
+    height: 40px; 
+}
+
+
+.hiddent-load-image{
+    display: none;
+}
 /* ****************************************************************************** */
 
 .flex-column{

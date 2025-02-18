@@ -1,11 +1,13 @@
 {% extends 'main.html' %}
 
+{% load static %}
+
 {% block content %}
 
     <div class="window-border">
         <div class="flex-column gap-md">
             <div class="flex-row gap-md">
-                <div class="user-logo-big"></div>
+                <img src="{{ user.userprofile.avatar.url }}" alt="Avatar" class="user-logo-big">
                 <div class="flex-column">
                     <div class="flex-row gap-sm align-items-center">
                         <div class="font-size-xl font-bold">{{user.first_name}} {{user.last_name}}</div>
@@ -23,8 +25,13 @@
                 </div>
             </div>
             <div class="flex-row gap-md">
-                <div style="background-color: black; width: 15px; height: 15px; border-radius: 50%;"></div>
-                <div>Кнопки действий, создать резюме и тд</div>
+                <form method="POST" action="{% url 'upload_avatar' %}" id="avatar-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label>
+                        <img src="{% static 'images/user_avatar_download.png' %}" alt="Avatar" class="button-md">
+                        <input type="file" name="avatar" accept="image/*" id="id-avatar" class="button-md hiddent-load-image"/>
+                    </label>
+                </form>
             </div>
         </div>
     </div>

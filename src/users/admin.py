@@ -26,7 +26,9 @@ class UserProfileAdmin(admin.ModelAdmin):
     fieldsets = [
         (
             None,
-            {"fields":['user']}
+            {"fields":[
+                ('user', 'avatar'),
+            ]}
         ),
         (
             "About User",

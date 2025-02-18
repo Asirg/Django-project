@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView, View, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .forms import UserAvatarForm
+
 
 # Login user
 def login_view(request):
@@ -64,3 +66,20 @@ class RegistrationView(TemplateView):
     
 class UserAccountView(LoginRequiredMixin, TemplateView):
     template_name = 'users/account.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        form = UserAvatarForm()
+        context['user_avatar_form'] = form
+
+        return context
+
+def upload_avatar(request):
+    if request.method == 'POST':
+        form = UserAvatarForm(request.POST, request.FILES, instance=request.user.userprofile)
+        if form.is_valid():
+            form.save()
+        else:
+            messages.error("An error occurred during upload images")
+    return redirect('account', pk=request.user.id)
