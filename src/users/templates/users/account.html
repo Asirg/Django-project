@@ -1,13 +1,75 @@
 {% extends 'main.html' %}
 
+{% load static %}
+
 {% block content %}
 
-    <!-- <h1>Home Template</h1>
-    <a href="{% url 'room' 1 %}">Go to rooms</a> -->
-    <div style="background-color: gray;">
-        <div>11111111111111111111111111 1111111111111111111111</div>
-        <div>11111111111111111111111111 1111111111111111111111</div>
-        <div>11111111111111111111111111 1111111111111111111111</div>
+    <div class="window-border">
+        <div class="flex-column gap-md">
+            <div class="flex-row gap-md">
+                {% if user.userprofile.avatar %}
+                    <img src="{{ user.userprofile.avatar.url }}" alt="Avatar" class="user-logo-big">
+                {% else %}
+                    <img src="{% static 'images/anonimous.png' %}" alt="Avatar" class="user-logo-big">
+                {% endif %}
+                <div class="flex-column">
+                    <div class="flex-row gap-sm align-items-center">
+                        <div class="font-size-xl font-bold">{{user.first_name}} {{user.last_name}}</div>
+                        <div style="background-color: black; width: 15px; height: 15px; border-radius: 50%;"></div>
+                        иконки с языками
+                    </div>
+                    <div class="flex-row gap-sm font-size-md font-bold font-color-secondary align-items-center">
+                        <div class="font-color-black">{{user.userprofile.primary_specialization}}</div>
+                        <div class="font-size-sm">from</div>
+                        <div>{{user.userprofile.city}}, {{user.userprofile.country}}</div>
+                    </div>
+                    <div class="user-description font-size-sm font-color-secondary">
+                        {{user.userprofile.description|truncatechars:150}}
+                    </div>
+                </div>
+            </div>
+            <div class="flex-row gap-md">
+                <form method="POST" action="{% url 'upload_avatar' %}" id="avatar-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label>
+                        <img src="{% static 'images/user_avatar_download.png' %}" alt="Avatar" class="button-md">
+                        <input type="file" name="avatar" accept="image/*" id="id-avatar" class="button-md hiddent-load-image"/>
+                    </label>
+                </form>
+                <a href="#"> <!-- обновления профеля пользователя -->
+                    <img src="{% static 'images/user_account_settings.png' %}" class="button-md">
+                </a>
+                <a href="#"> <!-- обновления профеля пользователя -->
+                    <img src="{% static 'images/user_resume.png' %}" class="button-md">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="window-border">
+        <div class="flex-column gap-md">
+            <div class="flex-row gap-xxl">
+                <div class="font-size-xl font-bold">Technologies</div>
+                <div>Типы отображения</div>
+            </div>
+            <div>
+                {% for language in user.userprofile.languages.all %}
+                    {{language}} {{language.get_level_display}}
+                {% endfor %}
+            </div>
+            <div>
+                {% for technology in user.userprofile.skills.all %}
+                    {{technology}}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="window-border">
+        <div class="flex-column gap-md">
+            <div>
+                <div>Какая то дополнительная аналитика по самом пользователю в отношение рынка</div>
+                <div>Настройки отображения</div>
+            </div>
+        </div>
     </div>
 
 {% endblock content %}

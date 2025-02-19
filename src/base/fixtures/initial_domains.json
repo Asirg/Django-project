@@ -1,0 +1,11 @@
+[
+    {
+        "model": "base.Domain",
+        "pk": 1,
+        "fields": {
+            "industry":1,
+            "name": "Analytcs & Data",
+            "desctiption": ". . ."
+        }
+    }
+]

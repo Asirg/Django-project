@@ -1,0 +1,11 @@
+[
+    {
+        "model": "base.Specialization",
+        "pk": 1,
+        "fields": {
+            "domain":1,
+            "name": "data engineer",
+            "desctiption": ". . ."
+        }
+    }
+]

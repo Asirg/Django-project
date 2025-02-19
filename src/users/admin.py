@@ -1,3 +1,35 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+
+@admin.register(models.UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = [
+        'user__username', 
+        'city',
+        'country',
+        'id', 
+    ]
+
+    fieldsets = [
+        (
+            None,
+            {"fields":[
+                ('user', 'avatar'),
+            ]}
+        ),
+        (
+            "About User",
+            {"fields":[
+                ('city', 'country'),
+                'description'
+            ]}
+        ),
+        (
+            "Profession",
+            {"fields":[
+                ('domain', 'primary_specialization'),
+                ('secondary_specializations', 'skills', 'languages')
+            ]}
+        )
+    ]

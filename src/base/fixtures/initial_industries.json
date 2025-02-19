@@ -1,0 +1,10 @@
+[
+    {
+        "model": "base.Industry",
+        "pk": 1,
+        "fields": {
+            "name": "IT",
+            "desctiption": ". . ."
+        }
+    }
+]

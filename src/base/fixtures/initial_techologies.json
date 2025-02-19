@@ -1,0 +1,10 @@
+[
+    {
+        "model": "base.Technology",
+        "pk": 1,
+        "fields": {
+            "name": "Python",
+            "desctiption": ". . ."
+        }
+    }
+]

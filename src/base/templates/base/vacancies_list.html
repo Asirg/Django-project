@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div style="padding:0; width: calc(95vw - (var(--spacing-md) * 2)); display: flex; gap:var(--spacing-sm)" class="flex-row">
+        <div style="width: 100px;height: 40px;display: flex; justify-content: center; align-items: center;" class="window-border">
+            PrivatBank
+        </div>
+        <div style="width: 100px;height: 40px;display: flex; justify-content: center; align-items: center;" class="window-border">
+            PrivatBank
+        </div>
+        <div style="width: 100px;height: 40px;display: flex; justify-content: center; align-items: center;" class="window-border">
+            PrivatBank
+        </div>
+    </div>
+    <div style="padding:0" class="flex-row gap-xl">
+
+        <div style="width: 25vw; padding: var(--spacing-sm); display: flex;" class="flex-column window-border align-items-center gap-sm">
+            <div>
+                42353245
+            </div>
+            <div>
+                42353245
+            </div>
+        </div>
+
+
+
+        <div class="flex-row gap-md" style="flex-wrap: wrap; max-width: calc(60vw + var(--spacing-md)*4);">
+
+            {% for vacancy in object_list %}
+                <div style="width: 30vw; padding: var(--spacing-sm);" class="flex-row window-border gap-sm flex-space-between">
+                    <div class="flex-row gap-sm">
+                        <div class="flex-column">
+                            <div class="window-border">image br</div>
+                            <div class="flex-row gap-xs">
+                                <div class="window-border">s</div>
+                                <div class="window-border">s</div>
+                                <div class="window-border">s</div>
+                                <div class="window-border">s</div>
+                                <div class="window-border">s</div>
+                            </div>
+                        </div>
+                        <div class="flex-column">
+                            <div>{{ vacancy.header }}</div>
+                            <div>descriptions</div>
+                            <div class="flex-row gap-xs">
+                                <div>m</div>
+                                <div>m</div>
+                                <div>m</div>
+                                <div>m</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-column">
+                        <div>M</div>
+                        <div>M</div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock content %}
